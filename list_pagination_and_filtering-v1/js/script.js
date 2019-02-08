@@ -52,7 +52,10 @@ const showPage = (list, page) => {
    functionality to the pagination buttons.
 ***/
 const appendPageLinks = (list) => {
-
+   const div = document.createElement('div');
+   div.classList.add('pagination');
+   const pageDiv = document.querySelector('.page');
+   pageDiv.appendChild(div);
 }
 
 
