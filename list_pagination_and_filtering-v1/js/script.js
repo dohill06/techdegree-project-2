@@ -18,7 +18,7 @@ FSJS project 2 - List Filter and Pagination
 ***/
 const students = document.querySelectorAll('.student-item');
 const studentsPerPage = 10;
-
+const pagesNeeded = Math.ceil(students.length / studentsPerPage);
 
 
 /*** 
