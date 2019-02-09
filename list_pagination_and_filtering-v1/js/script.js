@@ -52,7 +52,7 @@ const showPage = (list, page) => {
    functionality to the pagination buttons.
 ***/
 const appendPageLinks = (list) => {
-   const pagesNeeded = Math.ceil(students.length / studentsPerPage);
+   const pagesNeeded = Math.ceil(list.length / studentsPerPage);
    const div = document.createElement('div');
    div.classList.add('pagination');
    const pageDiv = document.querySelector('.page');
@@ -80,7 +80,7 @@ const appendPageLinks = (list) => {
 }
    
 showPage(students, 1)    
-appendPageLinks();
+appendPageLinks(students);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
