@@ -3,20 +3,15 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
    
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
-/*** 
-   Add your global variables 
-***/
+/*
+   Added global variables 
+*/
 const students = document.querySelectorAll('.student-item');
 const studentsPerPage = 10;
 
-
-
-
- /*  Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
+/*  
+Created the showPage function to hide all of the items in the 
+list except for the ten to show.
 */
 const showPage = (list, page) => {
    for (let i = 0; i < list.length; i ++) {
@@ -28,12 +23,10 @@ const showPage = (list, page) => {
    }
 }
 
-
-
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
+/*
+Created the appendPageLinks function to generate, append, and add 
+functionality to the buttons.
+*/
 const appendPageLinks = (list) => {
    const pagesNeeded = Math.ceil(list.length / studentsPerPage);
    const div = document.createElement('div');
@@ -61,8 +54,26 @@ const appendPageLinks = (list) => {
       });
    } 
 }
-   
+
+/*
+Added search function
+*/
+
+const searchBar = () => {
+   const pageDiv = document.querySelector('.page-header');
+   const searchDiv = document.createElement('div');
+   searchDiv.classList.add('student-search');
+   pageDiv.appendChild(searchDiv);
+}
+/*
+Called functions
+*/
 showPage(students, 1)    
 appendPageLinks(students);
+
+
+
+
+   
 
 
