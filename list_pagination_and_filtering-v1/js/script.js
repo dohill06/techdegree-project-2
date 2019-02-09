@@ -68,6 +68,10 @@ const searchBar = () => {
    searchInput.type = 'text';
    searchInput.placeholder = 'Search for students...';
    searchDiv.appendChild(searchInput);
+   const searchButton = document.createElement('button');
+   searchButton.type = 'button';
+   searchButton.textContent = 'Search';
+   searchDiv.appendChild(searchButton);
 }
 /*
 Called functions
