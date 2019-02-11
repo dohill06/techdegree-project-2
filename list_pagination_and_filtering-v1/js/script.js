@@ -2,7 +2,7 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
+
 /*
    Added global variables 
 */
@@ -15,8 +15,8 @@ Created the showPage function to hide all of the items in the
 list except for the ten to show.
 */
 const showPage = (list, page) => {
-   for (let i = 0; i < list.length; i ++) {
-      if ( i >= (page * studentsPerPage) - studentsPerPage && i < (page * studentsPerPage) ) {
+   for (let i = 0; i < list.length; i++) {
+      if (i >= (page * studentsPerPage) - studentsPerPage && i < (page * studentsPerPage)) {
          list[i].style.display = '';
       } else {
          list[i].style.display = 'none';
@@ -35,7 +35,7 @@ const appendPageLinks = (list) => {
    pageDiv.appendChild(div);
    const ul = document.createElement('ul');
    div.appendChild(ul);
-   for (let i = 1; i <= pagesNeeded; i ++) {
+   for (let i = 1; i <= pagesNeeded; i++) {
       const li = document.createElement('li');
       ul.appendChild(li);
       const a = document.createElement('a');
@@ -45,14 +45,14 @@ const appendPageLinks = (list) => {
       a.addEventListener('click', (e) => {
          showPage(list, i);
          const buttons = document.getElementsByTagName('a');
-         for (let i = 0; i < buttons.length; i ++) {
+         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove('active');
          }
          if (e.target) {
             a.classList.add('active');
          }
       });
-   } 
+   }
    return pagesNeeded;
 }
 
@@ -85,7 +85,7 @@ const searchBar = () => {
    });
    searchButton.addEventListener('click', () => {
       searchFunction();
-   });  
+   });
 }
 searchBar();
 
@@ -93,33 +93,44 @@ const searchFunction = () => {
    const textInput = document.querySelector('input').value.toLowerCase();
    studentList.length = 0;
    const result = document.querySelectorAll('h3');
-      
-    for (let i = 0; i < students.length; i++) {
-       if (result[i].innerHTML.startsWith(textInput)) {
-          studentList.push(students[i])
-          
-       } else {
-          result[i].parentNode.parentNode.style.display = 'none';
-       }
-    }
 
-   showPage(studentList, appendPageLinks(studentList));
+   for (let i = 0; i < students.length; i++) {
+      if (result[i].innerHTML.includes(textInput)) {
+         studentList.push(students[i])
+      } else {
+         result[i].parentNode.parentNode.style.display = 'none';
+      }
+   }
+   console.log(studentList.length)
+   noStudents();
+   showPage(studentList, 1);
+   appendPageLinks(studentList)
    const pagDiv = document.querySelector('.pagination');
    if (pagDiv !== null) {
       pageDiv.removeChild(pagDiv);
-   }
-}        
-
-
-
-         
-           
-             
-         
-
-        
-         
       
+   }
+}
+
+const noStudents = () => {
+   if (studentList.length === 0) {
+      console.log(23);
+      const h2 = document.querySelector('h2');
+      h2.textContent = 'No Students Found'
+   }
+
+ }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
