@@ -3,9 +3,9 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
-/*
-   Added global variables 
-*/
+
+//Added global variables 
+
 let students = document.querySelectorAll('.student-item');
 const studentsPerPage = 10;
 let studentList = Array.from(students);
@@ -53,7 +53,6 @@ const appendPageLinks = (list) => {
          }
       });
    }
-   return pagesNeeded;
 }
 
 
