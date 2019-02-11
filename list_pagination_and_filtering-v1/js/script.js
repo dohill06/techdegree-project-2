@@ -120,11 +120,14 @@ const searchFunction = () => {
 //Added noStudents function to add message if no students are found
 
 const noStudents = () => {
+   const h2 = document.querySelector('h2');
    if (studentList.length === 0) {
-      const h2 = document.querySelector('h2');
-      h2.textContent = 'No Students Found'
+      h2.textContent = 'No Students Found';
+   } else if (studentList.length > 0) {
+      h2.textContent = 'Students';
    }
 }
+      
 
 
 
