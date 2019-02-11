@@ -6,9 +6,10 @@ FSJS project 2 - List Filter and Pagination
 /*
    Added global variables 
 */
-const students = document.querySelectorAll('.student-item');
+let students = document.querySelectorAll('.student-item');
 const studentsPerPage = 10;
-
+let studentList = Array.from(students);
+const pagDiv = document.querySelector('.pagination');
 /*  
 Created the showPage function to hide all of the items in the 
 list except for the ten to show.
@@ -43,7 +44,7 @@ const appendPageLinks = (list) => {
       a.href = '#';
       li.appendChild(a);
       a.addEventListener('click', (e) => {
-         showPage(students, i);
+         showPage(list, i);
          const buttons = document.getElementsByTagName('a');
          for (let i = 0; i < buttons.length; i ++) {
             buttons[i].classList.remove('active');
@@ -53,7 +54,14 @@ const appendPageLinks = (list) => {
          }
       });
    } 
+   return pagesNeeded;
 }
+
+/*
+Called functions
+*/
+showPage(studentList, 1);
+appendPageLinks(studentList);
 
 /*
 Added search function
@@ -72,16 +80,49 @@ const searchBar = () => {
    searchButton.type = 'button';
    searchButton.textContent = 'Search';
    searchDiv.appendChild(searchButton);
+
+   searchInput.addEventListener('keyup', () => {
+      searchFunction();
+   });
+   searchButton.addEventListener('click', () => {
+      searchFunction();
+   });  
 }
-/*
-Called functions
-*/
-showPage(students, 1)    
-appendPageLinks(students);
+searchBar();
+
+const searchFunction = () => {
+   const textInput = document.querySelector('input').value.toLowerCase();
+   studentList.length = 0;
+   const result = document.querySelectorAll('h3');
+      
+    for (let i = 0; i < students.length; i++) {
+       if (result[i].innerHTML.startsWith(textInput)) {
+          studentList.push(students[i])
+          
+       } else {
+          result[i].parentNode.parentNode.style.display = 'none';
+       }
+    }
+
+   showPage(studentList, appendPageLinks(studentList));
+   const pagDiv = document.querySelector('.pagination');
+   pagDiv.style.display = 'none';
+}        
+
+
+
+         
+           
+             
+         
+
+        
+         
+      
 
 
 
 
-   
+
 
 
