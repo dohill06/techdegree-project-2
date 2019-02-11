@@ -62,8 +62,10 @@ showPage(studentList, 1);
 appendPageLinks(studentList);
 
 
-
-//Added search bar function
+/*
+Added searchBar function to generate, append, and add 
+functionality to the search bar.
+*/
 
 const searchBar = () => {
    const pageDiv = document.querySelector('.page-header');
@@ -87,10 +89,10 @@ const searchBar = () => {
    });
 }
 
-//Called search bar function
+//Called searchBar function
 searchBar();
 
-//Added search function for search bar
+//Added searchFunction for search bar functionality
 
 const searchFunction = () => {
    const textInput = document.querySelector('input').value.toLowerCase();
@@ -115,7 +117,7 @@ const searchFunction = () => {
    }
 }
 
-//Added no students function
+//Added noStudents function to add message if no students are found
 
 const noStudents = () => {
    if (studentList.length === 0) {
