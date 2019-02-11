@@ -9,7 +9,7 @@ FSJS project 2 - List Filter and Pagination
 let students = document.querySelectorAll('.student-item');
 const studentsPerPage = 10;
 let studentList = Array.from(students);
-const pagDiv = document.querySelector('.pagination');
+const pageDiv = document.querySelector('.page');
 /*  
 Created the showPage function to hide all of the items in the 
 list except for the ten to show.
@@ -32,7 +32,6 @@ const appendPageLinks = (list) => {
    const pagesNeeded = Math.ceil(list.length / studentsPerPage);
    const div = document.createElement('div');
    div.classList.add('pagination');
-   const pageDiv = document.querySelector('.page');
    pageDiv.appendChild(div);
    const ul = document.createElement('ul');
    div.appendChild(ul);
@@ -106,7 +105,9 @@ const searchFunction = () => {
 
    showPage(studentList, appendPageLinks(studentList));
    const pagDiv = document.querySelector('.pagination');
-   pagDiv.style.display = 'none';
+   if (pagDiv !== null) {
+      pageDiv.removeChild(pagDiv);
+   }
 }        
 
 
