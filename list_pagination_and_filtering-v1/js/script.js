@@ -12,7 +12,7 @@ let studentList = Array.from(students);
 const pageDiv = document.querySelector('.page');
 /*  
 Created the showPage function to hide all of the items in the 
-list except for the ten to show.
+list except for the items to show.
 */
 const showPage = (list, page) => {
    for (let i = 0; i < list.length; i++) {
@@ -56,15 +56,15 @@ const appendPageLinks = (list) => {
    return pagesNeeded;
 }
 
-/*
-Called functions
-*/
+
+//Called functions
+
 showPage(studentList, 1);
 appendPageLinks(studentList);
 
-/*
-Added search function
-*/
+
+
+//Added search bar function
 
 const searchBar = () => {
    const pageDiv = document.querySelector('.page-header');
@@ -87,7 +87,11 @@ const searchBar = () => {
       searchFunction();
    });
 }
+
+//Called search bar function
 searchBar();
+
+//Added search function for search bar
 
 const searchFunction = () => {
    const textInput = document.querySelector('input').value.toLowerCase();
@@ -101,25 +105,26 @@ const searchFunction = () => {
          result[i].parentNode.parentNode.style.display = 'none';
       }
    }
-   console.log(studentList.length)
+
    noStudents();
    showPage(studentList, 1);
    appendPageLinks(studentList)
    const pagDiv = document.querySelector('.pagination');
    if (pagDiv !== null) {
       pageDiv.removeChild(pagDiv);
-      
+
    }
 }
 
+//Added no students function
+
 const noStudents = () => {
    if (studentList.length === 0) {
-      console.log(23);
       const h2 = document.querySelector('h2');
       h2.textContent = 'No Students Found'
    }
+}
 
- }
 
 
 
